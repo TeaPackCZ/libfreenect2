@@ -232,7 +232,7 @@ sudo apt-get install build-essential cmake pkg-config libturbojpeg libjpeg-turbo
 # sudo apt-get install libturbojpeg0-dev (Debian)
 ```
 
-1. Install libusb. `sudo apt-get install libusb-1.0-0-dev`. The version must be >=1.0.20. You may use `sudo apt-add-repository ppa:floe/libusb && sudo apt-get update && sudo apt-get upgrade` if version 1.0.20 is not available.
+1. Install libusb. `sudo apt-get install libusb-1.0-0-dev`. The version must be >=1.0.20. You may use `sudo apt-add-repository ppa:floe/libusb && sudo apt-get update && sudo apt-get upgrade` if version 1.0.20 is not available. Latest available version (Jan 2016) is for Vivid, if you are using newer version, you have to change PPA distrbution to Vivid manualy.
 
 1. Install GLFW3, only if OpenGL 3.1 is supported (Odroid XU4 does not support it and you should use `cmake -DENABLE_OPENGL=OFF`). Try `sudo apt-get install libglfw3-dev`, if that is not available (e.g. Ubuntu trusty 14.04), you can download and install deb files from later Ubuntu releases:
 
@@ -252,7 +252,7 @@ sudo dpkg -i libglfw3*_3.0.4-1_*.deb
   * Mali GPU (e.g. Odroid XU4): (with root) `mkdir -p /etc/OpenCL/vendors; echo /usr/lib/arm-linux-gnueabihf/mali-egl/libmali.so >/etc/OpenCL/vendors/mali.icd; apt-get install opencl-headers`.
   * Verify: You can install `clinfo` to verify if you have correctly set up the OpenCL stack.
 
-1. Build the actual protonect executable
+1. Buildthe actual protonect executable with make
 
     ```
 cd ..
@@ -261,6 +261,21 @@ cmake ..
 make
 sudo make install # without sudo if cmake -DCMAKE_INSTALL_PREFIX=$HOME/...
 ```
+
+1. Build the actual protonect executable with checkinstall
+
+    ```
+cd ..
+mkdir build && cd build
+cmake ..
+make
+sudo checkinstall
+```
+
+  * Change name of Maintainer to your name
+  * Add Summary
+  * Change name of package from build to i.e. freenect2
+  * Start instalation
 
 1. Run the program
 
