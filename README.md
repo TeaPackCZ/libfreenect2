@@ -252,7 +252,7 @@ sudo dpkg -i libglfw3*_3.0.4-1_*.deb
   * Mali GPU (e.g. Odroid XU4): (with root) `mkdir -p /etc/OpenCL/vendors; echo /usr/lib/arm-linux-gnueabihf/mali-egl/libmali.so >/etc/OpenCL/vendors/mali.icd; apt-get install opencl-headers`.
   * Verify: You can install `clinfo` to verify if you have correctly set up the OpenCL stack.
 
-1. Buildthe actual protonect executable with make
+1. Build the actual protonect executable with make
 
     ```
 cd ..
